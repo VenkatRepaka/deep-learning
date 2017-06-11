@@ -8,3 +8,4 @@ embeddings/text8.zip
 .idea/
 image-classification/__pycache__/
 image-classification/cifar-10-python.tar.gz
+image-classification/cifar-10-batches-py
