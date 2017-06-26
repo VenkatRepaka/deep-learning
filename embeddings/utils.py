@@ -1,4 +1,3 @@
-import re
 from collections import Counter
 
 def preprocess(text):
