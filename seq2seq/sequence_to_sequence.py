@@ -145,12 +145,12 @@ input_word = [source_letter_to_int.get(letter, source_letter_to_int['<unk>']) fo
 input_word = input_word + [0] * (sequence_length - len(input_word))
 batch_shell = np.zeros((batch_size, sequence_length))
 batch_shell[0] = input_word
-chatbot_logits = sess.run(inference_logits, {input_data: batch_shell})
+chatbot_logits = sess.run(inference_logits, {input_data: batch_shell})[0]
 
 print('Input')
 print('  Word Ids:      {}'.format([i for i in input_word]))
-print('  Input Words:   {}'.format([source_letter_to_int[i] for i in input_word]))
+print('  Input Words:   {}'.format([source_int_to_letter[i] for i in input_word]))
 
 print('Output')
 print('  Word Ids:      {}'.format([i for i in np.argmax(chatbot_logits, 1)]))
-print('  Chatbot Answer Words {}'.format([target_letter_to_int[i] for i in np.argmax(chatbot_logits, 1)]))
+print('  Chatbot Answer Words {}'.format([target_int_to_letter[i] for i in np.argmax(chatbot_logits, 1)]))
